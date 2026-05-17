@@ -1,7 +1,5 @@
 import os
-import io
 import logging
-from datetime import datetime
 import pandas as pd
 import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
@@ -22,7 +20,7 @@ BUCKET_NAME = os.getenv("AWS_BUCKET_NAME")
 def upload_to_s3(df: pd.DataFrame, s3_key: str) -> bool:
 
     if not BUCKET_NAME:
-        logging.critical("No AWS bucket name specified. Please set the BUCKET_NAME variable.")
+        logging.critical("No AWS bucket name specified. Please set the AWS_BUCKET_NAME variable.")
         return False
     
     parquet_buffer = convert_to_parquet(df)
