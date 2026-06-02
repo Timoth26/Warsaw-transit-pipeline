@@ -1,11 +1,12 @@
 import os
 import logging
+from datetime import datetime
 import pandas as pd
 import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
 from dotenv import load_dotenv
 from extract import fetch_vehicle_positions
-from utils import convert_to_parquet
+from utils import convert_to_parquet, build_time_partitioned_s3_key
 
 
 load_dotenv()
@@ -16,23 +17,45 @@ logging.basicConfig(
 )
 
 BUCKET_NAME = os.getenv("AWS_BUCKET_NAME")
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID") or os.getenv("ACCESS_KEY")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY") or os.getenv("SECRET_KEY")
+AWS_REGION = os.getenv("AWS_REGION") or os.getenv("AWS_DEFAULT_REGION")
 
 def upload_to_s3(df: pd.DataFrame, s3_key: str) -> bool:
 
     if not BUCKET_NAME:
-        logging.critical("No AWS bucket name specified. Please set the AWS_BUCKET_NAME variable.")
-        return False
+        message = "No AWS bucket name specified. Please set the AWS_BUCKET_NAME variable."
+        logging.critical(message)
+        raise ValueError(message)
+
+    if not AWS_ACCESS_KEY_ID or not AWS_SECRET_ACCESS_KEY:
+        message = (
+            "No AWS credentials found. Set AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY "
+            "or ACCESS_KEY/SECRET_KEY."
+        )
+        logging.critical(message)
+        raise ValueError(message)
     
     parquet_buffer = convert_to_parquet(df)
 
-    s3_client = boto3.client('s3')
+    client_kwargs = {
+        "aws_access_key_id": AWS_ACCESS_KEY_ID,
+        "aws_secret_access_key": AWS_SECRET_ACCESS_KEY,
+    }
+
+    if AWS_REGION:
+        client_kwargs["region_name"] = AWS_REGION
+
+    s3_client = boto3.client('s3', **client_kwargs)
     try:
         s3_client.upload_fileobj(parquet_buffer, BUCKET_NAME, s3_key)
         logging.info(f"File uploaded to S3: {s3_key}")
         return True
     except NoCredentialsError:
-        logging.error("No AWS credentials. Check your configuration.")
-        return False
+        message = "No AWS credentials. Check your configuration."
+        logging.error(message)
+        raise
     except ClientError as e:
-        logging.error(f"Error uploading to S3: {e}")
-        return False
+        message = f"Error uploading to S3: {e}"
+        logging.error(message)
+        raise
