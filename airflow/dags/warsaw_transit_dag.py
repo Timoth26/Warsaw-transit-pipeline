@@ -27,20 +27,20 @@ default_args = {
 def warsaw_transit_el():
 
     @task
-    def extract():
-        return fetch_vehicle_positions(vehicle_type=1)
+    def extract(vehicle_type: int):
+        return fetch_vehicle_positions(vehicle_type=vehicle_type)
 
     @task
-    def load(raw_data):
-        if not raw_data:
+    def load(data, vehicle_type: int):
+        if not data:
             return "no data"
 
-        df = pd.DataFrame(raw_data)
+        df = pd.DataFrame(data)
         context = get_current_context()
         logical_date = context["logical_date"]
 
         s3_key = build_time_partitioned_s3_key(
-            "buses",
+            f"{vehicle_type}",
             logical_date,
         )
 
@@ -48,9 +48,11 @@ def warsaw_transit_el():
 
         return f"uploaded raw data to {s3_key}"
 
-    load(
-        extract()
-    )
+    buses = extract.override(task_id="extract_buses")(1)
+    trams = extract.override(task_id="extract_trams")(2)
+
+    load.override(task_id="load_buses")(buses, 1)
+    load.override(task_id="load_trams")(trams, 2)
 
 
 warsaw_transit_el()
