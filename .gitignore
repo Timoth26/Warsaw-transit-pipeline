@@ -229,3 +229,6 @@ crash.log
 
 # CLI configs
 .aws/
+
+# Airflow
+*.cfg

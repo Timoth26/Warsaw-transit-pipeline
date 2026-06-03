@@ -8,11 +8,11 @@ def convert_to_parquet(df):
     return parquet_buffer
 
 
-def build_time_partitioned_s3_key(filename_prefix: str, now: datetime | None = None) -> str:
+def build_time_partitioned_s3_key(vehicle_type: str, now: datetime | None = None) -> str:
     now = now or datetime.now()
 
     return (
-        f"raw/year={now.year}/month={now.month:02d}/"
+        f"{vehicle_type}/raw/year={now.year}/month={now.month:02d}/"
         f"day={now.day:02d}/hour={now.hour:02d}/"
-        f"{filename_prefix}_{now.strftime('%Y%m%d_%H%M%S')}.parquet"
+        f"{now.strftime('%Y%m%d_%H%M%S')}.parquet"
     )

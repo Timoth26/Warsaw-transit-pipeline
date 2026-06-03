@@ -4,6 +4,8 @@ from airflow.sdk import dag, task, get_current_context
 
 import pandas as pd
 
+from enum import IntEnum
+
 from load_to_s3 import upload_to_s3
 from extract import fetch_vehicle_positions
 from utils import build_time_partitioned_s3_key
@@ -15,6 +17,9 @@ default_args = {
     "retry_delay": timedelta(minutes=2),
 }
 
+class VehicleType(IntEnum):
+    BUS = 1
+    TRAM = 2
 
 @dag(
     dag_id="warsaw_transit_dag",
@@ -27,11 +32,11 @@ default_args = {
 def warsaw_transit_el():
 
     @task
-    def extract(vehicle_type: int):
+    def extract(vehicle_type: VehicleType):
         return fetch_vehicle_positions(vehicle_type=vehicle_type)
 
     @task
-    def load(data, vehicle_type: int):
+    def load(data, vehicle_type: VehicleType):
         if not data:
             return "no data"
 
@@ -39,8 +44,10 @@ def warsaw_transit_el():
         context = get_current_context()
         logical_date = context["logical_date"]
 
+        vehicle_name = vehicle_type.name.lower()
+
         s3_key = build_time_partitioned_s3_key(
-            f"{vehicle_type}",
+            vehicle_name,
             logical_date,
         )
 
@@ -48,11 +55,11 @@ def warsaw_transit_el():
 
         return f"uploaded raw data to {s3_key}"
 
-    buses = extract.override(task_id="extract_buses")(1)
-    trams = extract.override(task_id="extract_trams")(2)
+    buses = extract.override(task_id="extract_buses")(VehicleType.BUS)
+    trams = extract.override(task_id="extract_trams")(VehicleType.TRAM)
 
-    load.override(task_id="load_buses")(buses, 1)
-    load.override(task_id="load_trams")(trams, 2)
+    load.override(task_id="load_buses")(buses, VehicleType.BUS)
+    load.override(task_id="load_trams")(trams, VehicleType.TRAM)
 
 
 warsaw_transit_el()
