@@ -6,12 +6,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 API_KEY = os.getenv("API_KEY")
 URL = os.getenv("URL")
+
 
 def fetch_vehicle_positions(vehicle_type=2):
 
@@ -19,29 +19,19 @@ def fetch_vehicle_positions(vehicle_type=2):
         logging.critical("API key is not set. Please set the API_KEY variable.")
         raise ValueError("API key is required to fetch vehicle positions.")
 
-    headers = {
-    "Authorization": API_KEY,
-    "Content-Type": "application/json"
-    }
-    
-    payload = {
-    "type": vehicle_type
-    }
+    headers = {"Authorization": API_KEY, "Content-Type": "application/json"}
+
+    payload = {"type": vehicle_type}
 
     try:
         logging.info(f"Request sent to {URL} with payload: {payload}")
 
-        response = requests.post(
-            URL,
-            headers=headers,
-            json=payload,
-            timeout=10
-        )
-        
+        response = requests.post(URL, headers=headers, json=payload, timeout=10)
+
         response.raise_for_status()
 
         return response.json()
-    
+
     except requests.exceptions.RequestException as e:
         logging.error(f"Request failed: {e}")
         return []

@@ -1,13 +1,14 @@
-import os
 import logging
+import os
 from datetime import datetime
-import pandas as pd
-import boto3
-from botocore.exceptions import NoCredentialsError, ClientError
-from dotenv import load_dotenv
-from extract import fetch_vehicle_positions
-from utils import convert_to_parquet, build_time_partitioned_s3_key
 
+import boto3
+import pandas as pd
+from botocore.exceptions import ClientError, NoCredentialsError
+from dotenv import load_dotenv
+
+from extract import fetch_vehicle_positions
+from utils import build_time_partitioned_s3_key, convert_to_parquet
 
 load_dotenv()
 

@@ -1,15 +1,12 @@
 from datetime import datetime, timedelta
-
-from airflow.sdk import dag, task, get_current_context
-
-import pandas as pd
-
 from enum import IntEnum
 
-from load_to_s3 import upload_to_s3
-from extract import fetch_vehicle_positions
-from utils import build_time_partitioned_s3_key
+import pandas as pd
+from airflow.sdk import dag, get_current_context, task
 
+from extract import fetch_vehicle_positions
+from load_to_s3 import upload_to_s3
+from utils import build_time_partitioned_s3_key
 
 default_args = {
     "owner": "airflow",
@@ -17,9 +14,11 @@ default_args = {
     "retry_delay": timedelta(minutes=2),
 }
 
+
 class VehicleType(IntEnum):
     BUS = 1
     TRAM = 2
+
 
 @dag(
     dag_id="warsaw_transit_dag",
