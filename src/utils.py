@@ -13,7 +13,7 @@ def build_time_partitioned_s3_key(vehicle_type: str, now: datetime | None = None
     now = now or datetime.now()
 
     return (
-        f"{vehicle_type}/raw/year={now.year}/month={now.month:02d}/"
+        f"transit/vehicle_type={vehicle_type}/year={now.year}/month={now.month:02d}/"
         f"day={now.day:02d}/hour={now.hour:02d}/"
         f"{now.strftime('%Y%m%d_%H%M%S')}.parquet"
     )

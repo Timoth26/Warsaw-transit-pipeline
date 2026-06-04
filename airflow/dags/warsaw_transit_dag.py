@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from enum import IntEnum
 
 import pandas as pd
+import pendulum
 from airflow.sdk import dag, get_current_context, task
 
 from extract import fetch_vehicle_positions
@@ -41,13 +42,16 @@ def warsaw_transit_el():
 
         df = pd.DataFrame(data)
         context = get_current_context()
-        logical_date = context["logical_date"]
+
+        logical_date_utc = context["logical_date"]
+        local_tz = pendulum.timezone("Europe/Warsaw")
+        logical_date_local = logical_date_utc.in_timezone(local_tz)
 
         vehicle_name = vehicle_type.name.lower()
 
         s3_key = build_time_partitioned_s3_key(
             vehicle_name,
-            logical_date,
+            logical_date_local,
         )
 
         upload_to_s3(df, s3_key)
