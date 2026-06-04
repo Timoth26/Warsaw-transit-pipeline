@@ -23,3 +23,10 @@ dependencies = [
     "six==1.17.0",
     "urllib3==2.7.0",
 ]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
