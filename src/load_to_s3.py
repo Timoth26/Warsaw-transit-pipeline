@@ -10,9 +10,7 @@ from utils import convert_to_parquet
 
 load_dotenv()
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 BUCKET_NAME = os.getenv("AWS_BUCKET_NAME")
 AWS_REGION = os.getenv("AWS_REGION") or os.getenv("AWS_DEFAULT_REGION")
@@ -21,9 +19,7 @@ AWS_REGION = os.getenv("AWS_REGION") or os.getenv("AWS_DEFAULT_REGION")
 def upload_to_s3(df: pd.DataFrame, s3_key: str) -> bool:
 
     if not BUCKET_NAME:
-        message = (
-            "No AWS bucket name specified. Please set the AWS_BUCKET_NAME variable."
-        )
+        message = "No AWS bucket name specified. Please set the AWS_BUCKET_NAME variable."
         raise ValueError(message)
 
     parquet_buffer = convert_to_parquet(df)
