@@ -2,18 +2,12 @@
 
 SELECT
     vehicle_type,
-    year,
-    month,
-    day,
-    hour,
+    
+    date_trunc('hour', event_time) AS report_hour,
 
     COUNT(*) AS position_reports
 
 FROM {{ ref('stg_transit') }}
 
 GROUP BY
-    vehicle_type,
-    year,
-    month,
-    day,
-    hour
+    1, 2

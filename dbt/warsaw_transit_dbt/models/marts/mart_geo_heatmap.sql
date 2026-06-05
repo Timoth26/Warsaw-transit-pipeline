@@ -1,13 +1,14 @@
 {{ config(materialized='table') }}
 
+WITH hashed AS (
+    SELECT
+        to_geohash(bing_tile_quadkey(bing_tile_at(lat, lon, 15))) AS full_geohash
+    FROM {{ ref('stg_transit') }}
+)
+
 SELECT
-    lat,
-    lon,
-
+    SUBSTRING(full_geohash, 1, 7) AS geohash_zone,
     COUNT(*) AS intensity
-
-FROM {{ ref('stg_transit') }}
-
+FROM hashed
 GROUP BY
-    lat,
-    lon
+    SUBSTRING(full_geohash, 1, 7)
