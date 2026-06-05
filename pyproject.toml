@@ -9,6 +9,8 @@ dependencies = [
     "boto3>=1.43.22",
     "certifi==2026.4.22",
     "charset-normalizer==3.4.7",
+    "dbt-athena-community>=1.10.1",
+    "dbt-core>=1.11.11",
     "dotenv==0.9.9",
     "idna==3.15",
     "logging==0.4.9.6",
