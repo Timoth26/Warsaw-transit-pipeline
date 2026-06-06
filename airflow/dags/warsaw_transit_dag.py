@@ -25,7 +25,7 @@ class VehicleType(IntEnum):
     dag_id="warsaw_transit_dag",
     default_args=default_args,
     start_date=datetime(2024, 1, 1),
-    schedule="*/10 * * * *",
+    schedule="*/5 * * * *",
     catchup=False,
     tags=["s3", "warsaw_transit"],
 )

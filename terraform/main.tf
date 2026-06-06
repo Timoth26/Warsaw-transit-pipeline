@@ -64,6 +64,8 @@ resource "aws_iam_role_policy" "glue_s3_access" {
   })
 }
 
+## Crawler only for beggining to check strucutre of raw data
+## Do not use Crawler with dbt
 resource "aws_glue_crawler" "transit" {
   name          = "warsaw-transit-crawler"
   role          = aws_iam_role.glue_role.arn

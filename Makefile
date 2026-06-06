@@ -1,6 +1,5 @@
 SHELL := /bin/bash
 
-COMPOSE := docker compose -f docker-compose.yml
 DBT_DIR := dbt/warsaw_transit_dbt
 DBT := cd $(DBT_DIR) && dbt
 

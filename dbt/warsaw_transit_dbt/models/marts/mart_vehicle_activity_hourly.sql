@@ -5,7 +5,7 @@ SELECT
     
     date_trunc('hour', event_time) AS report_hour,
 
-    COUNT(*) AS position_reports
+    COUNT(DISTINCT vehicle_number) AS active_vehicles
 
 FROM {{ ref('stg_transit') }}
 
