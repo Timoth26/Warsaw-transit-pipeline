@@ -232,3 +232,5 @@ crash.log
 
 # Airflow
 *.cfg
+
+.DS_Store

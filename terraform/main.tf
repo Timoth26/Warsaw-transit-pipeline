@@ -8,11 +8,12 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-central-1"
+  region = var.aws_region
 }
 
+# --- S3 Bucket ---
 resource "aws_s3_bucket" "data_lake" {
-  bucket = "warsaw-transit-data-lake-90123"
+  bucket = var.s3_bucket_name
 
   tags = {
     Name        = "Warsaw Transit Data Lake"
@@ -20,6 +21,7 @@ resource "aws_s3_bucket" "data_lake" {
   }
 }
 
+# --- AWS Glue ---
 resource "aws_glue_catalog_database" "warsaw_transit" {
   name = "warsaw_transit"
 }
@@ -64,8 +66,8 @@ resource "aws_iam_role_policy" "glue_s3_access" {
   })
 }
 
-## Crawler only for beggining to check strucutre of raw data
-## Do not use Crawler with dbt
+# Crawler only for beginning to check structure of raw data
+# Do not use Crawler with dbt
 resource "aws_glue_crawler" "transit" {
   name          = "warsaw-transit-crawler"
   role          = aws_iam_role.glue_role.arn
@@ -79,6 +81,7 @@ resource "aws_glue_crawler" "transit" {
     delete_behavior = "LOG"
     update_behavior = "LOG"
   }
+  
   recrawl_policy {
     recrawl_behavior = "CRAWL_NEW_FOLDERS_ONLY"
   }
