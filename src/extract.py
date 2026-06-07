@@ -25,7 +25,7 @@ def fetch_vehicle_positions(vehicle_type=2):
     try:
         logging.info(f"Request sent to {URL} with payload: {payload}")
 
-        response = requests.post(URL, headers=headers, json=payload, timeout=10)
+        response = requests.post(URL, headers=headers, json=payload, timeout=50)
 
         response.raise_for_status()
 
@@ -33,7 +33,7 @@ def fetch_vehicle_positions(vehicle_type=2):
 
     except requests.exceptions.RequestException as e:
         logging.error(f"Request failed: {e}")
-        return []
+        raise
 
 
 if __name__ == "__main__":
