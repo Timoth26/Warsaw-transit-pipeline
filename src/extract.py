@@ -18,14 +18,19 @@ def fetch_vehicle_positions(vehicle_type=2):
         logging.critical("API key is not set. Please set the API_KEY variable.")
         raise ValueError("API key is required to fetch vehicle positions.")
 
-    headers = {"Authorization": API_KEY, "Content-Type": "application/json"}
+    headers = {
+        "Authorization": API_KEY,
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)"
+        " Chrome/120.0.0.0 Safari/537.36",
+    }
 
     payload = {"type": vehicle_type}
 
     try:
         logging.info(f"Request sent to {URL} with payload: {payload}")
 
-        response = requests.post(URL, headers=headers, json=payload, timeout=10)
+        response = requests.post(URL, headers=headers, json=payload, timeout=30)
 
         response.raise_for_status()
 
@@ -33,7 +38,7 @@ def fetch_vehicle_positions(vehicle_type=2):
 
     except requests.exceptions.RequestException as e:
         logging.error(f"Request failed: {e}")
-        return []
+        raise
 
 
 if __name__ == "__main__":

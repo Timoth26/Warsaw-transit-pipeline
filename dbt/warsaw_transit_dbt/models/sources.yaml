@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: glue
+    database: awsdatacatalog
+    schema: warsaw_transit
+    tables:
+      - name: transit
