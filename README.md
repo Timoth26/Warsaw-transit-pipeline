@@ -14,7 +14,7 @@ An end-to-end Data Engineering pipeline that ingests real-time GPS data from [Wa
 
 ## 🏗️ Architecture Overview
 
-> **[PLACEHOLDER FOR YOUR ARCHITECTURE DIAGRAM]** > *(Insert your draw.io / Excalidraw architecture diagram here. Name it `architecture.png` and place it in the `img/` folder, then replace this text with `![Architecture](img/architecture.png)`)*
+![Architecture](img/architecture.png)
 
 ### The ELT Workflow:
 1. **Extract & Load:** Python scripts orchestrate the extraction of real-time GPS data from the ZTM API and load the raw Parquet data directly into an **AWS S3**.
