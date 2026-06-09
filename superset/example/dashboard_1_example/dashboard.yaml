@@ -1,0 +1,335 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+certification_details: ''
+certified_by: ''
+css: ''
+dashboard_title: Warsaw Transit Dashboard - example
+description: null
+metadata:
+  chart_configuration:
+    09b6c188-baee-4ef8-8c96-849368cbe91f:
+      crossFilters:
+        chartsInScope:
+        - 8e6e26c3-ed45-4713-8706-e2acd56bea16
+        - e69b2395-bfb8-464b-87b2-9c449798042b
+        - 5bcf0ff9-ba27-415d-98ad-74874ff89652
+        - e725b03a-8af6-46b3-be0b-d7a3187f3249
+        - c1063015-fa63-49ae-b3a2-f884e11d82b0
+        - fb0f0886-ee04-44ca-848f-845591112451
+        scope: global
+      id: 09b6c188-baee-4ef8-8c96-849368cbe91f
+    5bcf0ff9-ba27-415d-98ad-74874ff89652:
+      crossFilters:
+        chartsInScope:
+        - 8e6e26c3-ed45-4713-8706-e2acd56bea16
+        - e69b2395-bfb8-464b-87b2-9c449798042b
+        - 09b6c188-baee-4ef8-8c96-849368cbe91f
+        - e725b03a-8af6-46b3-be0b-d7a3187f3249
+        - c1063015-fa63-49ae-b3a2-f884e11d82b0
+        - fb0f0886-ee04-44ca-848f-845591112451
+        scope: global
+      id: 5bcf0ff9-ba27-415d-98ad-74874ff89652
+    8e6e26c3-ed45-4713-8706-e2acd56bea16:
+      crossFilters:
+        chartsInScope:
+        - e69b2395-bfb8-464b-87b2-9c449798042b
+        - 5bcf0ff9-ba27-415d-98ad-74874ff89652
+        - 09b6c188-baee-4ef8-8c96-849368cbe91f
+        - e725b03a-8af6-46b3-be0b-d7a3187f3249
+        - c1063015-fa63-49ae-b3a2-f884e11d82b0
+        - fb0f0886-ee04-44ca-848f-845591112451
+        scope: global
+      id: 8e6e26c3-ed45-4713-8706-e2acd56bea16
+    c1063015-fa63-49ae-b3a2-f884e11d82b0:
+      crossFilters:
+        chartsInScope:
+        - 8e6e26c3-ed45-4713-8706-e2acd56bea16
+        - e69b2395-bfb8-464b-87b2-9c449798042b
+        - 5bcf0ff9-ba27-415d-98ad-74874ff89652
+        - 09b6c188-baee-4ef8-8c96-849368cbe91f
+        - e725b03a-8af6-46b3-be0b-d7a3187f3249
+        - fb0f0886-ee04-44ca-848f-845591112451
+        scope: global
+      id: c1063015-fa63-49ae-b3a2-f884e11d82b0
+    e69b2395-bfb8-464b-87b2-9c449798042b:
+      crossFilters:
+        chartsInScope:
+        - 8e6e26c3-ed45-4713-8706-e2acd56bea16
+        - 5bcf0ff9-ba27-415d-98ad-74874ff89652
+        - 09b6c188-baee-4ef8-8c96-849368cbe91f
+        - e725b03a-8af6-46b3-be0b-d7a3187f3249
+        - c1063015-fa63-49ae-b3a2-f884e11d82b0
+        - fb0f0886-ee04-44ca-848f-845591112451
+        scope: global
+      id: e69b2395-bfb8-464b-87b2-9c449798042b
+    e725b03a-8af6-46b3-be0b-d7a3187f3249:
+      crossFilters:
+        chartsInScope:
+        - 8e6e26c3-ed45-4713-8706-e2acd56bea16
+        - e69b2395-bfb8-464b-87b2-9c449798042b
+        - 5bcf0ff9-ba27-415d-98ad-74874ff89652
+        - 09b6c188-baee-4ef8-8c96-849368cbe91f
+        - c1063015-fa63-49ae-b3a2-f884e11d82b0
+        - fb0f0886-ee04-44ca-848f-845591112451
+        scope: global
+      id: e725b03a-8af6-46b3-be0b-d7a3187f3249
+    fb0f0886-ee04-44ca-848f-845591112451:
+      crossFilters:
+        chartsInScope:
+        - 8e6e26c3-ed45-4713-8706-e2acd56bea16
+        - e69b2395-bfb8-464b-87b2-9c449798042b
+        - 5bcf0ff9-ba27-415d-98ad-74874ff89652
+        - 09b6c188-baee-4ef8-8c96-849368cbe91f
+        - e725b03a-8af6-46b3-be0b-d7a3187f3249
+        - c1063015-fa63-49ae-b3a2-f884e11d82b0
+        scope: global
+      id: fb0f0886-ee04-44ca-848f-845591112451
+  color_scheme: ''
+  color_scheme_domain: []
+  cross_filters_enabled: true
+  default_filters: '{}'
+  expanded_slices: {}
+  global_chart_configuration:
+    chartsInScope:
+    - 8e6e26c3-ed45-4713-8706-e2acd56bea16
+    - e69b2395-bfb8-464b-87b2-9c449798042b
+    - 5bcf0ff9-ba27-415d-98ad-74874ff89652
+    - 09b6c188-baee-4ef8-8c96-849368cbe91f
+    - e725b03a-8af6-46b3-be0b-d7a3187f3249
+    - c1063015-fa63-49ae-b3a2-f884e11d82b0
+    - fb0f0886-ee04-44ca-848f-845591112451
+    scope:
+      excluded: []
+      rootPath:
+      - ROOT_ID
+  label_colors: {}
+  map_label_colors:
+    '1': '#454E7C'
+    '107': '#FEC0A1'
+    '112': '#B2B2B2'
+    '116': '#EFA1AA'
+    '117': '#FDE380'
+    '120': '#D3B3DA'
+    '122': '#9EE5E5'
+    '136': '#D1C6BC'
+    '15': '#666666'
+    '157': '#454E7C'
+    '158': '#5AC189'
+    '16': '#E04355'
+    '17': '#FCC700'
+    '18': '#A868B7'
+    '180': '#FF7F44'
+    '189': '#666666'
+    '19': '#3CCCCB'
+    '26': '#A38F79'
+    '28': '#8FD3E4'
+    '33': '#A1A6BD'
+    '4': '#5AC189'
+    '509': '#E04355'
+    '517': '#FCC700'
+    '523': '#A868B7'
+    '6': '#FF7F44'
+    '79': '#ACE1C4'
+    MAX(observations): '#1FA8C9'
+    Z-9: '#3CCCCB'
+    bus: '#3366cc'
+    tram: '#dc3912'
+  native_filter_configuration: []
+  refresh_frequency: 0
+  shared_label_colors:
+  - bus
+  - tram
+  timed_refresh_immune_slices: []
+position:
+  CHART-4pciIe0IxpUj9trN2XryT:
+    children: []
+    id: CHART-4pciIe0IxpUj9trN2XryT
+    meta:
+      chartId: 7
+      height: 50
+      sliceName: Warsaw top lines - bus and trams comp
+      uuid: fb0f0886-ee04-44ca-848f-845591112451
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-pz9L9VmfoTudNUIfVgt41
+    type: CHART
+  CHART-5PtVZoSQVAlp3vbZlCXxn:
+    children: []
+    id: CHART-5PtVZoSQVAlp3vbZlCXxn
+    meta:
+      chartId: 5
+      height: 50
+      sliceName: Warsaw Transit Line Activity
+      uuid: e725b03a-8af6-46b3-be0b-d7a3187f3249
+      width: 8
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-pz9L9VmfoTudNUIfVgt41
+    type: CHART
+  CHART-8QYi6yufOJRJTZrtwfVFD:
+    children: []
+    id: CHART-8QYi6yufOJRJTZrtwfVFD
+    meta:
+      chartId: 1
+      height: 50
+      sliceName: Warsaw all vehicles paths last 24h - only trams
+      uuid: 8e6e26c3-ed45-4713-8706-e2acd56bea16
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-3qHVZw3R_QXDnbFgxoyV9
+    type: CHART
+  CHART-BIJawazTwnMbbNHOrbQT5:
+    children: []
+    id: CHART-BIJawazTwnMbbNHOrbQT5
+    meta:
+      chartId: 6
+      height: 50
+      sliceName: Warsaw Top Lines Treetop
+      uuid: c1063015-fa63-49ae-b3a2-f884e11d82b0
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-kQibxTQEHTE-8ZsL684Ox
+    type: CHART
+  CHART-Fnt-vp2aVz1iqN4EGXJTU:
+    children: []
+    id: CHART-Fnt-vp2aVz1iqN4EGXJTU
+    meta:
+      chartId: 4
+      height: 50
+      sliceName: Warsaw Transit Geo Heatmap
+      uuid: 09b6c188-baee-4ef8-8c96-849368cbe91f
+      width: 12
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-U_E5A-0TDAy2E3OXGg2h5
+    type: CHART
+  CHART-Ju_to53A9ITtzi4qz_cBh:
+    children: []
+    id: CHART-Ju_to53A9ITtzi4qz_cBh
+    meta:
+      chartId: 3
+      height: 50
+      sliceName: Warsaw all vehicles paths last 24h - all
+      uuid: 5bcf0ff9-ba27-415d-98ad-74874ff89652
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-3qHVZw3R_QXDnbFgxoyV9
+    type: CHART
+  CHART-ytdAQgUjrpNBM07EQkHL1:
+    children: []
+    id: CHART-ytdAQgUjrpNBM07EQkHL1
+    meta:
+      chartId: 2
+      height: 50
+      sliceName: Warsaw all vehicles paths last 24h - only buses
+      uuid: e69b2395-bfb8-464b-87b2-9c449798042b
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-3qHVZw3R_QXDnbFgxoyV9
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - HEADER-V3U64r8ClxpedsK_6oiet
+    - ROW-pz9L9VmfoTudNUIfVgt41
+    - ROW-3qHVZw3R_QXDnbFgxoyV9
+    - ROW-kQibxTQEHTE-8ZsL684Ox
+    - ROW-U_E5A-0TDAy2E3OXGg2h5
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  HEADER-V3U64r8ClxpedsK_6oiet:
+    children: []
+    id: HEADER-V3U64r8ClxpedsK_6oiet
+    meta:
+      background: BACKGROUND_TRANSPARENT
+      headerSize: MEDIUM_HEADER
+      text: Example charts for Warsaw Transit Pipeline
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: HEADER
+  HEADER_ID:
+    id: HEADER_ID
+    meta:
+      text: Warsaw Transit Dashboard - example
+    type: HEADER
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-3qHVZw3R_QXDnbFgxoyV9:
+    children:
+    - CHART-Ju_to53A9ITtzi4qz_cBh
+    - CHART-ytdAQgUjrpNBM07EQkHL1
+    - CHART-8QYi6yufOJRJTZrtwfVFD
+    id: ROW-3qHVZw3R_QXDnbFgxoyV9
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-U_E5A-0TDAy2E3OXGg2h5:
+    children:
+    - CHART-Fnt-vp2aVz1iqN4EGXJTU
+    id: ROW-U_E5A-0TDAy2E3OXGg2h5
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-kQibxTQEHTE-8ZsL684Ox:
+    children:
+    - CHART-BIJawazTwnMbbNHOrbQT5
+    id: ROW-kQibxTQEHTE-8ZsL684Ox
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-pz9L9VmfoTudNUIfVgt41:
+    children:
+    - CHART-4pciIe0IxpUj9trN2XryT
+    - CHART-5PtVZoSQVAlp3vbZlCXxn
+    id: ROW-pz9L9VmfoTudNUIfVgt41
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+published: false
+slug: null
+uuid: e8b5cd87-4ace-4854-902e-f19bcbab33da
+version: 1.0.0

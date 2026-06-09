@@ -1,0 +1,165 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: caaf12ae-a55a-4205-bf43-5fbd3d1cf614
+description: null
+params:
+  adhoc_filters: []
+  annotation_layers: []
+  color_by_primary_axis: false
+  color_scheme: supersetColors
+  comparison_type: values
+  contributionMode: null
+  dashboards: []
+  datasource: 3__table
+  echart_options: '{}'
+  extra_form_data: {}
+  force_max_interval: false
+  forecastEnabled: false
+  forecastInterval: 0.8
+  forecastPeriods: 10
+  group_others_when_limit_reached: false
+  groupby:
+  - vehicle_type
+  legendOrientation: top
+  legendSort: null
+  legendType: scroll
+  limit: 500
+  logAxis: false
+  matrixify_all_sort_by_columns: a_to_z
+  matrixify_all_sort_by_rows: a_to_z
+  matrixify_cell_title_template: ''
+  matrixify_charts_per_row: 4
+  matrixify_dimension_columns:
+    dimension: ''
+    values: []
+  matrixify_dimension_rows:
+    dimension: ''
+    values: []
+  matrixify_dimension_selection_mode_columns: members
+  matrixify_dimension_selection_mode_rows: members
+  matrixify_enable: false
+  matrixify_fit_columns_dynamically: true
+  matrixify_mode_columns: disabled
+  matrixify_mode_rows: disabled
+  matrixify_row_height: 300
+  matrixify_show_column_headers: true
+  matrixify_show_row_labels: true
+  matrixify_topn_order_columns: true
+  matrixify_topn_order_rows: true
+  matrixify_topn_value_columns: 10
+  matrixify_topn_value_rows: 10
+  metrics:
+  - aggregate: SUM
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: unique_vehicles
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 12
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: BIGINT
+      type_generic: 0
+      uuid: b80e3ce5-1913-4a6e-95ad-2ec7318a41f5
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: SUM(unique_vehicles)
+    optionName: metric_qwa5e6vt0ta_jkvd7bofct
+    sqlExpression: null
+  minorSplitLine: false
+  minorTicks: false
+  only_total: true
+  order_desc: true
+  orientation: vertical
+  percentage_threshold: 0
+  rich_tooltip: true
+  row_limit: '20'
+  showTooltipPercentage: false
+  showTooltipTotal: true
+  show_empty_columns: true
+  show_legend: true
+  show_value: true
+  sort_series_ascending: false
+  sort_series_type: sum
+  time_grain_sqla: P1D
+  time_shift_color: true
+  timeseries_limit_metric:
+    aggregate: SUM
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: unique_vehicles
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 12
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: BIGINT
+      type_generic: 0
+      uuid: b80e3ce5-1913-4a6e-95ad-2ec7318a41f5
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: SUM(unique_vehicles)
+    optionName: metric_zg1olobq6d_bu9gekgavog
+    sqlExpression: null
+  tooltipSortByMetric: false
+  tooltipTimeFormat: smart_date
+  truncateXAxis: true
+  truncateYAxis: false
+  truncate_metric: true
+  viz_type: echarts_timeseries_bar
+  xAxisForceCategorical: false
+  xAxisLabelInterval: auto
+  xAxisLabelRotation: 0
+  x_axis: line_number
+  x_axis_number_format: ~g
+  x_axis_sort: max
+  x_axis_sort_asc: false
+  x_axis_time_format: smart_date
+  x_axis_title: Line number
+  x_axis_title_margin: 30
+  y_axis_bounds:
+  - null
+  - null
+  y_axis_format: SMART_NUMBER
+  y_axis_title: Amount of vehicles
+  y_axis_title_margin: 30
+  y_axis_title_position: Left
+  zoomable: false
+query_context: null
+slice_name: Warsaw Transit Line Activity
+uuid: e725b03a-8af6-46b3-be0b-d7a3187f3249
+version: 1.0.0
+viz_type: echarts_timeseries_bar
