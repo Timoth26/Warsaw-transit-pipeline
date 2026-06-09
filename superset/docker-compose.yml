@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  superset-db:
+    image: postgres:15-alpine
+    container_name: superset_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-superset}
+      POSTGRES_USER: ${POSTGRES_USER:-superset}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-superset_secure_password}
+    volumes:
+      # Persistent storage to preserve charts, dashboards, and connection metadata
+      - ./db_data:/var/lib/postgresql/data
+    networks:
+      - superset_network
+
+  superset:
+      build: .
+      container_name: superset
+      restart: unless-stopped
+      ports:
+        - "8088:8088"
+      depends_on:
+        - superset-db
+      environment:
+        - SUPERSET_SECRET_KEY=${SUPERSET_SECRET_KEY}
+        - SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@superset-db:5432/${POSTGRES_DB}
+        - MAPBOX_API_KEY=${MAPBOX_API_KEY}
+      command: >
+        /bin/sh -c "
+        superset db upgrade &&
+        superset fab create-admin \
+          --username $${ADMIN_USERNAME} \
+          --firstname $${ADMIN_FIRST_NAME} \
+          --lastname $${ADMIN_LAST_NAME} \
+          --email $${ADMIN_EMAIL} \
+          --password $${ADMIN_PASSWORD} &&
+        superset init &&
+        superset run -h 0.0.0.0 -p 8088 --with-threads --reload
+        "
+      networks:
+        - superset_network
+
+networks:
+  superset_network:
+    driver: bridge

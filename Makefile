@@ -1,15 +1,16 @@
 SHELL := /bin/bash
 
 DBT_DIR := dbt/warsaw_transit_dbt
+SUPERSET_DIR := superset
 DBT := cd $(DBT_DIR) && dbt
 
-up:
+airflow-up:
 	docker compose -f docker-compose.yml up -d
 
-down:
+airflow-down:
 	docker compose -f docker-compose.yml down
 
-restart:
+airflow-restart:
 	docker compose -f docker-compose.yml down
 	docker compose -f docker-compose.yml up -d
 
@@ -22,3 +23,13 @@ dbt-docs:
 
 dbt-list-models:
 	$(DBT) ls --resource-type model
+
+superset-up:
+	docker compose -f $(SUPERSET_DIR)/docker-compose.yml up -d
+
+superset-down:
+	docker compose -f $(SUPERSET_DIR)/docker-compose.yml down
+
+superset-restart:
+	docker compose -f $(SUPERSET_DIR)/docker-compose.yml down
+	docker compose -f $(SUPERSET_DIR)/docker-compose.yml up -d

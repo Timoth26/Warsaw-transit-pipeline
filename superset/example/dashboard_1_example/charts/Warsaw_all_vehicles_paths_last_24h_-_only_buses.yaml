@@ -1,0 +1,104 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+cache_timeout: null
+certification_details: null
+certified_by: null
+dataset_uuid: f71c8bab-12d6-4ac7-b6ac-d2573fd09ab9
+description: null
+params:
+  adhoc_filters:
+  - clause: WHERE
+    comparator: 'DATEADD(DATETIME("now"), -3, day) : now'
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_nv4ouqcfwf_7055djl4mjc
+    isExtra: false
+    isNew: false
+    operator: TEMPORAL_RANGE
+    sqlExpression: null
+    subject: route_start_time
+  - clause: WHERE
+    comparator: bus
+    datasourceWarning: false
+    expressionType: SIMPLE
+    filterOptionName: filter_5h17s49ws4i_bywvfzzb9m6
+    isExtra: false
+    isNew: false
+    operator: ==
+    operatorId: EQUALS
+    sqlExpression: null
+    subject: vehicle_type
+  autozoom: true
+  color_picker:
+    a: 1
+    b: 203
+    g: 204
+    r: 60
+  dashboards:
+  - 1
+  datasource: 1__table
+  extra_form_data: {}
+  filter_nulls: true
+  js_columns: []
+  js_data_mutator: ''
+  js_onclick_href: ''
+  js_tooltip: ''
+  line_column: path_coordinates
+  line_type: json
+  line_width: 5
+  line_width_unit: meters
+  mapbox_style: mapbox://styles/mapbox/satellite-streets-v9
+  matrixify_all_sort_by_columns: a_to_z
+  matrixify_all_sort_by_rows: a_to_z
+  matrixify_cell_title_template: ''
+  matrixify_charts_per_row: 4
+  matrixify_dimension_columns:
+    dimension: ''
+    values: []
+  matrixify_dimension_rows:
+    dimension: ''
+    values: []
+  matrixify_dimension_selection_mode_columns: members
+  matrixify_dimension_selection_mode_rows: members
+  matrixify_enable: false
+  matrixify_fit_columns_dynamically: true
+  matrixify_mode_columns: disabled
+  matrixify_mode_rows: disabled
+  matrixify_row_height: 300
+  matrixify_show_column_headers: true
+  matrixify_show_row_labels: true
+  matrixify_topn_order_columns: true
+  matrixify_topn_order_rows: true
+  matrixify_topn_value_columns: 10
+  matrixify_topn_value_rows: 10
+  reverse_long_lat: false
+  row_limit: 10000
+  slice_id: 2
+  tooltip_contents: []
+  tooltip_template: ''
+  viewport:
+    bearing: 0
+    latitude: 31.222656842808707
+    longitude: 6.85236157047845
+    pitch: 0
+    zoom: 1
+  viz_type: deck_path
+query_context: null
+slice_name: Warsaw all vehicles paths last 24h - only buses
+uuid: e69b2395-bfb8-464b-87b2-9c449798042b
+version: 1.0.0
+viz_type: deck_path
